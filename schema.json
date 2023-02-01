@@ -1,0 +1,380 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "event",
+        "data"
+    ],
+    "properties": {
+        "event": {
+            "type": "string",
+            "default": "",
+            "title": "The event Schema",
+            "examples": [
+                "TRACKING_UPDATED"
+            ]
+        },
+        "data": {
+            "type": "object",
+            "default": {},
+            "title": "The data Schema",
+            "required": [
+                "number",
+                "carrier",
+                "param",
+                "tag",
+                "track_info"
+            ],
+            "properties": {
+                "number": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The number Schema",
+                    "examples": [
+                        "RR123456789CN"
+                    ]
+                },
+                "carrier": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The carrier Schema",
+                    "examples": [
+                        3011
+                    ]
+                },
+                "param": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The param Schema",
+                    "examples": [
+                        "518000"
+                    ]
+                },
+                "tag": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The tag Schema",
+                    "examples": [
+                        "myID"
+                    ]
+                },
+                "track_info": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The track_info Schema",
+                    "required": [
+                        "latest_status",
+                        "latest_event"
+                    ],
+                    "properties": {
+                        "latest_status": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The latest_status Schema",
+                            "required": [
+                                "status",
+                                "sub_status",
+                                "sub_status_descr"
+                            ],
+                            "properties": {
+                                "status": {
+                                    "default": "",
+                                    "title": "The status Schema",
+                                    "type" : "string",
+                                    "enum" : ["InTransit", "AvailableForPickup", "Delivered", "DeliveryFailure"],
+                                    "examples": [
+                                        "InTransit"
+                                    ]
+                                },
+                                "sub_status": {
+                                    "type": "string",
+                                    "default": "",
+                                    "title": "The sub_status Schema",
+                                    "examples": [
+                                        "InTransit_Other"
+                                    ]
+                                },
+                                "sub_status_descr": {
+                                    "type": "null",
+                                    "default": null,
+                                    "title": "The sub_status_descr Schema",
+                                    "examples": [
+                                        null
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "status": "InTransit",
+                                "sub_status": "InTransit_Other",
+                                "sub_status_descr": null
+                            }]
+                        },
+                        "latest_event": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The latest_event Schema",
+                            "required": [
+                                "time_iso",
+                                "time_utc",
+                                "description",
+                                "location",
+                                "stage",
+                                "address"
+                            ],
+                            "properties": {
+                                "time_iso": {
+                                    "type": "string",
+                                    "default": "",
+                                    "title": "The time_iso Schema",
+                                    "examples": [
+                                        "2022-05-23T22:22:00+08:00"
+                                    ]
+                                },
+                                "time_utc": {
+                                    "type": "string",
+                                    "default": "",
+                                    "title": "The time_utc Schema",
+                                    "examples": [
+                                        "2022-05-23T14:22:00Z"
+                                    ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "default": "",
+                                    "title": "The description Schema",
+                                    "examples": [
+                                        "The plane entered the port"
+                                    ]
+                                },
+                                "location": {
+                                    "type": "string",
+                                    "default": "",
+                                    "title": "The location Schema",
+                                    "examples": [
+                                        "NJ"
+                                    ]
+                                },
+                                "stage": {
+                                    "type": "string",
+                                    "default": "",
+                                    "title": "The stage Schema",
+                                    "examples": [
+                                        "Delivered"
+                                    ]
+                                },
+                                "address": {
+                                    "type": "object",
+                                    "default": {},
+                                    "title": "The address Schema",
+                                    "required": [
+                                        "country",
+                                        "state",
+                                        "city",
+                                        "street",
+                                        "postal_code",
+                                        "coordinates"
+                                    ],
+                                    "properties": {
+                                        "country": {
+                                            "type": "string",
+                                            "default": "",
+                                            "title": "The country Schema",
+                                            "examples": [
+                                                "US"
+                                            ]
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "default": "",
+                                            "title": "The state Schema",
+                                            "examples": [
+                                                "AK"
+                                            ]
+                                        },
+                                        "city": {
+                                            "type": "string",
+                                            "default": "",
+                                            "title": "The city Schema",
+                                            "examples": [
+                                                "ANCHORAGE"
+                                            ]
+                                        },
+                                        "street": {
+                                            "type": "null",
+                                            "default": null,
+                                            "title": "The street Schema",
+                                            "examples": [
+                                                null
+                                            ]
+                                        },
+                                        "postal_code": {
+                                            "type": "string",
+                                            "default": "",
+                                            "title": "The postal_code Schema",
+                                            "examples": [
+                                                "99502"
+                                            ]
+                                        },
+                                        "coordinates": {
+                                            "type": "object",
+                                            "default": {},
+                                            "title": "The coordinates Schema",
+                                            "required": [
+                                                "longitude",
+                                                "latitude"
+                                            ],
+                                            "properties": {
+                                                "longitude": {
+                                                    "type": "string",
+                                                    "default": "",
+                                                    "title": "The longitude Schema",
+                                                    "examples": [
+                                                        "35.86166"
+                                                    ]
+                                                },
+                                                "latitude": {
+                                                    "type": "string",
+                                                    "default": "",
+                                                    "title": "The latitude Schema",
+                                                    "examples": [
+                                                        "104.195397"
+                                                    ]
+                                                }
+                                            },
+                                            "examples": [{
+                                                "longitude": "35.86166",
+                                                "latitude": "104.195397"
+                                            }]
+                                        }
+                                    },
+                                    "examples": [{
+                                        "country": "US",
+                                        "state": "AK",
+                                        "city": "ANCHORAGE",
+                                        "street": null,
+                                        "postal_code": "99502",
+                                        "coordinates": {
+                                            "longitude": "35.86166",
+                                            "latitude": "104.195397"
+                                        }
+                                    }]
+                                }
+                            },
+                            "examples": [{
+                                "time_iso": "2022-05-23T22:22:00+08:00",
+                                "time_utc": "2022-05-23T14:22:00Z",
+                                "description": "The plane entered the port",
+                                "location": "NJ",
+                                "stage": "Delivered",
+                                "address": {
+                                    "country": "US",
+                                    "state": "AK",
+                                    "city": "ANCHORAGE",
+                                    "street": null,
+                                    "postal_code": "99502",
+                                    "coordinates": {
+                                        "longitude": "35.86166",
+                                        "latitude": "104.195397"
+                                    }
+                                }
+                            }]
+                        }
+                    },
+                    "examples": [{
+                        "latest_status": {
+                            "status": "InTransit",
+                            "sub_status": "InTransit_Other",
+                            "sub_status_descr": null
+                        },
+                        "latest_event": {
+                            "time_iso": "2022-05-23T22:22:00+08:00",
+                            "time_utc": "2022-05-23T14:22:00Z",
+                            "description": "The plane entered the port",
+                            "location": "NJ",
+                            "stage": "Delivered",
+                            "address": {
+                                "country": "US",
+                                "state": "AK",
+                                "city": "ANCHORAGE",
+                                "street": null,
+                                "postal_code": "99502",
+                                "coordinates": {
+                                    "longitude": "35.86166",
+                                    "latitude": "104.195397"
+                                }
+                            }
+                        }
+                    }]
+                }
+            },
+            "examples": [{
+                "number": "RR123456789CN",
+                "carrier": 3011,
+                "param": "518000",
+                "tag": "myID",
+                "track_info": {
+                    "latest_status": {
+                        "status": "InTransit",
+                        "sub_status": "InTransit_Other",
+                        "sub_status_descr": null
+                    },
+                    "latest_event": {
+                        "time_iso": "2022-05-23T22:22:00+08:00",
+                        "time_utc": "2022-05-23T14:22:00Z",
+                        "description": "The plane entered the port",
+                        "location": "NJ",
+                        "stage": "Delivered",
+                        "address": {
+                            "country": "US",
+                            "state": "AK",
+                            "city": "ANCHORAGE",
+                            "street": null,
+                            "postal_code": "99502",
+                            "coordinates": {
+                                "longitude": "35.86166",
+                                "latitude": "104.195397"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    },
+    "examples": [{
+        "event": "TRACKING_UPDATED",
+        "data": {
+            "number": "RR123456789CN",
+            "carrier": 3011,
+            "param": "518000",
+            "tag": "myID",
+            "track_info": {
+                "latest_status": {
+                    "status": "InTransit",
+                    "sub_status": "InTransit_Other",
+                    "sub_status_descr": null
+                },
+                "latest_event": {
+                    "time_iso": "2022-05-23T22:22:00+08:00",
+                    "time_utc": "2022-05-23T14:22:00Z",
+                    "description": "The plane entered the port",
+                    "location": "NJ",
+                    "stage": "Delivered",
+                    "address": {
+                        "country": "US",
+                        "state": "AK",
+                        "city": "ANCHORAGE",
+                        "street": null,
+                        "postal_code": "99502",
+                        "coordinates": {
+                            "longitude": "35.86166",
+                            "latitude": "104.195397"
+                        }
+                    }
+                }
+            }
+        }
+    }]
+}
